@@ -42,6 +42,7 @@ jobs:
           export PATH="/usr/share/miniconda/bin:$PATH"
           mamba env update -q --name macroconf_tests --file workflow/envs/test_environment.yml
           mamba env update -q --name snakemake --file workflow/envs/snakemake.yaml
+          mamba env update -q --name stats --file workflow/envs/stats.yaml
         if: steps.cache.outputs.cache-hit != 'true'
         
       - name: Setup conda environments
