@@ -1,8 +1,8 @@
 name: macroconf_tests
 channels:
+  - conda-forge
   - bioconda
   - davidfarinajr
-  - conda-forge
   - defaults
 dependencies:
   - _libgcc_mutex=0.1
