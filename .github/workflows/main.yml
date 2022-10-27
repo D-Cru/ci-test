@@ -32,7 +32,7 @@ jobs:
       - name: Setup mamba
         run: |
           export PATH="/usr/share/miniconda/bin:$PATH"
-          # conda config --set channel_priority strict
+          conda config --set channel_priority strict
           conda install -c conda-forge -q mamba
           # ensure that mamba is happy to write into the cache
           sudo chown -R runner:docker /usr/share/miniconda/pkgs/cache
@@ -51,7 +51,7 @@ jobs:
           # activate conda env
           export PATH="/usr/share/miniconda/bin:$PATH"
           source activate snakemake
-          snakemake --conda-create-envs-only --use-conda -j2 --conda-frontend conda
+          snakemake --conda-create-envs-only --use-conda -j2 --conda-frontend mamba
         if: steps.cache.outputs.cache-hit != 'true'
           
       - name: List conda environments
